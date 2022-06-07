@@ -13,6 +13,7 @@ public class PostsApiController {
 
     private final PostsService postsService;
 
+    // 게시글 저장
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto) {
         return postsService.save(requestDto);
