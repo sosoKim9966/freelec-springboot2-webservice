@@ -2,6 +2,7 @@ package com.jojoldu.book.freelecspringboot2webservice.service.posts;
 
 import com.jojoldu.book.freelecspringboot2webservice.domain.posts.Posts;
 import com.jojoldu.book.freelecspringboot2webservice.domain.posts.PostsRepository;
+import com.jojoldu.book.freelecspringboot2webservice.web.dto.PostsListResponseDto;
 import com.jojoldu.book.freelecspringboot2webservice.web.dto.PostsResponseDto;
 import com.jojoldu.book.freelecspringboot2webservice.web.dto.PostsSaveRequestDto;
 import com.jojoldu.book.freelecspringboot2webservice.web.dto.PostsUpdateRequestDto;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -43,6 +44,6 @@ public class PostsService {
     public List<PostsListResponseDto> findAllDesc() {
         return postsRepository.findAllDesc().stream()
                 .map(PostsListResponseDto::new)
-                .collect(Collector.toList());
+                .collect(Collectors.toList());
     }
 }
